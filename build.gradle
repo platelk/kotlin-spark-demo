@@ -1,0 +1,30 @@
+buildscript {
+  ext.kotlin_version = '1.0.1'
+
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = 'com.netatmo.server.MainKt'
+
+defaultTasks 'run'
+
+repositories {
+  mavenCentral()
+}
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  compile "com.sparkjava:spark-core:2.3"
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = "2.7"
+}
